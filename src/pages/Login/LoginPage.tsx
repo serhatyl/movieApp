@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginFormModel } from "../../models";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  // Validation Schema
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -34,11 +35,12 @@ const LoginPage = () => {
 
   const onSubmit = (data: LoginFormModel) => {
     const { email, password } = data;
-    console.log(data);
+    //NOTE - Fake login service belki loading state'i vs eklenebilir
     if (email === "user@mail.com" && password === "Password1") {
+      setIsAuthenticated(true);
       navigate("/home");
     } else {
-      alert("Invalid credentials");
+      alert("Lütfen email ve şifrenizi kontrol ederek tekrar deneyiniz");
     }
   };
 

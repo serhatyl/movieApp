@@ -1,8 +1,9 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const AuthChecker = () => {
-  const isAuthenticated = false; //TODO - Kullanıcının giriş yapıp yapmadığını kontrol et
+  const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
