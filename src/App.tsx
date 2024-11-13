@@ -11,6 +11,8 @@ import AuthChecker from "./components/AuthChecker";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 
 const App: React.FC = () => {
+  console.log("**");
+
   return (
     <AuthContextProvider>
       <BrowserRouter>
@@ -23,7 +25,7 @@ const App: React.FC = () => {
           <Route element={<AuthChecker />}>
             <Route path="/" element={<MainLayout />}>
               <Route path="home" element={<MovieListPage />} />
-              <Route path="/movies/:id" element={<MovieDetailPage />} />{" "}
+              <Route path="/movies/:id" element={<MovieDetailPage />} />
             </Route>
           </Route>
 

@@ -11,24 +11,28 @@ import { FooterLinkModel } from "../../models";
 
 const footerLinks: Array<FooterLinkModel> = [
   {
+    key: 1,
     href: "https://www.facebook.com",
     icon: faFacebookSquare,
     size: "2x",
     target: "_blank",
   },
   {
+    key: 2,
     href: "https://www.instagram.com",
     icon: faInstagram,
     size: "2x",
     target: "_blank",
   },
   {
+    key: 3,
     href: "https://www.twitter.com",
     icon: faTwitterSquare,
     size: "2x",
     target: "_blank",
   },
   {
+    key: 4,
     href: "https://www.youtube.com",
     icon: faYoutubeSquare,
     size: "2x",
@@ -41,7 +45,7 @@ const Footer = () => {
     <footer>
       <div className="icon-wrapper">
         {footerLinks.map((link) => (
-          <Link to={link.href} target={link.target}>
+          <Link to={link.href} target={link.target} key={link.key}>
             <FontAwesomeIcon icon={link.icon} size={link.size} />
           </Link>
         ))}

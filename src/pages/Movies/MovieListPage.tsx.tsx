@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { MovieService } from "../../services";
 
 const MovieListPage = () => {
-  return (
-    <div>MovieListPage</div>
-  )
-}
+  const fetchMovies = () => {
+    console.log("fetchMovies triggered");
+    MovieService.fetchMovies()
+      .then((movieResult) => {
+        console.log("movie result = ", movieResult);
+      })
+      .catch(() => {
+        alert("Movie fetch failed");
+      });
+  };
 
-export default MovieListPage
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  return <div>MovieListPage</div>;
+};
+
+export default MovieListPage;

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import OctButton from "../../components/ui/Button";
 
 const LoginPage = () => {
   const { isAuthenticated, setIsAuthenticated } = useAuth();
@@ -69,10 +70,10 @@ const LoginPage = () => {
         )}
       </div>
 
-      <button type="submit">
+      <OctButton type="submit">
         Giriş
         <FontAwesomeIcon icon={faChevronRight} size="xs" />
-      </button>
+      </OctButton>
     </form>
   );
 };

@@ -1,7 +1,9 @@
 const webpack = require("webpack");
+const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const port = process.env.PORT || 3000;
+dotenv.config();
 
 module.exports = {
   mode: "development",
@@ -35,6 +37,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
       // favicon: "public/favicon.ico",
+    }),
+    //NOTE - defining env variables
+    new webpack.DefinePlugin({
+      "process.env.JSON_SERVER_BASE_URL": JSON.stringify(
+        process.env.JSON_SERVER_BASE_URL
+      ),
     }),
   ],
   devServer: {
