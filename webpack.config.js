@@ -1,17 +1,25 @@
-const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const port = process.env.PORT || 3000;
+
 module.exports = {
+  mode: "development",
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "bundle.[hash].js",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
+  devtool: "inline-source-map",
   module: {
     rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -25,16 +33,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: "public/index.html",
+      // favicon: "public/favicon.ico",
     }),
   ],
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    compress: true,
-    port: 3000,
+    host: "localhost",
+    port: port,
+    historyApiFallback: true,
     open: true,
   },
 };
