@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import OctButton from "../../components/ui/Button";
 
 const LoginPage = () => {
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const schema = yup.object().shape({

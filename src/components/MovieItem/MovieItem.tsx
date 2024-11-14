@@ -36,22 +36,28 @@ const MovieItem = (props: Props) => {
   };
 
   return (
-    <div className="movie-item" onClick={handleClickMoviteItem} key={id}>
-      {isTvSeries && <Badge position="left">TV SERIES</Badge>}
-      <Badge
-        className={`badge--heart ${isFavourite() && `badge--liked`}`}
-        onClick={(e: any) => handleFavoriteClick(e)}
-        position="right"
-        rounded
-        clickable
-      >
-        <img src="./heart.svg" />
-      </Badge>
-      <img src={imgUrl ?? "https://placehold.co/250x370/jpg"} alt={name} />
-      <div className="movie-date">{year}</div>
-      <div className="name">{name}</div>
-      <MovieRating imdbScore={imdb} />
-      <div className="movie-category">{category}</div>
+    <div
+      className="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+      onClick={handleClickMoviteItem}
+      key={id}
+    >
+      <div className="movie-item">
+        {isTvSeries && <Badge position="left">TV SERIES</Badge>}
+        <Badge
+          className={`badge--heart ${isFavourite() && `badge--liked`}`}
+          onClick={(e: any) => handleFavoriteClick(e)}
+          position="right"
+          rounded
+          clickable
+        >
+          <img src="./heart.svg" />
+        </Badge>
+        <img src={imgUrl ?? "https://placehold.co/250x370/jpg"} alt={name} />
+        <div className="movie-date">{year}</div>
+        <div className="name">{name}</div>
+        <MovieRating imdbScore={imdb} />
+        <div className="movie-category">{category}</div>
+      </div>
     </div>
   );
 };

@@ -34,10 +34,19 @@ const MovieContextProvider: React.FC<Props> = ({ children }) => {
     }));
   };
 
+  const setSearchText = (searchText: string) => {
+    setMovieProps((oldState: MovieProps) => ({
+      ...oldState,
+      searchText,
+    }));
+  };
+
   const [movieProps, setMovieProps] = useState<MovieProps>({
     favourites: [],
+    searchText: "",
     removeFavourite,
     addFavourite,
+    setSearchText,
   });
 
   return (

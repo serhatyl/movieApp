@@ -1,13 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/ui/Footer";
-import LoginHeader from "../components/ui/LoginHeader";
-import "../styles/login.scss"
+import Header from "../components/ui/Header";
+import "../styles/login.scss";
+import { useLayout } from "../hooks/useLayout";
 
 const LoginLayout = () => {
+  const layoutProps = useLayout();
   return (
     <div className="login-layout">
-      <LoginHeader />
+      <Header />
       <main>
         <Outlet />
       </main>

@@ -7,4 +7,5 @@ export interface MovieModel {
   category: string;
   isTvSeries: boolean;
   summary: string;
+  imageUrl?: string;
 }

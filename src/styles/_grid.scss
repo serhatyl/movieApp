@@ -1,0 +1,40 @@
+$gap-size: 4rem;
+
+[class*="col"] {
+  flex: 1 0 auto;
+}
+
+.col-xs-12 {
+  flex-basis: 100%;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: $gap-size;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .col-sm-6 {
+    flex-basis: calc(100% / 2 - $gap-size);
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex-basis: calc(100% / 3 - $gap-size);
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex-basis: calc(100% / 4 - $gap-size);
+  }
+}

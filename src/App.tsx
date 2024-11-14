@@ -10,30 +10,32 @@ import MainLayout from "./layouts/MainLayout";
 import AuthChecker from "./components/AuthChecker";
 import AuthContextProvider from "./contexts/Auth/AuthContextProvider";
 import MovieContextProvider from "./contexts/Movie/MovieContextProvider";
+import LayoutContextProvider from "./contexts/Layout/LayoutContextProvider";
 
 const App: React.FC = () => {
   return (
-    <AuthContextProvider>
-      <MovieContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<LoginLayout />}>
-              <Route index element={<LoginPage />} />
-            </Route>
-
-            {/* Main Layout (Login sonrası gösterilecek) */}
-            <Route element={<AuthChecker />}>
+    <LayoutContextProvider>
+      <AuthContextProvider>
+        <MovieContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" element={<LoginLayout />}>
+                <Route index element={<LoginPage />} />
+              </Route>
+              {/* Main Layout (Login sonrası gösterilecek) */}
+              {/* TODO - open authchecker */}
+              {/* <Route element={<AuthChecker />}> */}
               <Route path="/" element={<MainLayout />}>
                 <Route path="movies" element={<MovieListPage />} />
                 <Route path="movies/:id" element={<MovieDetailPage />} />
               </Route>
-            </Route>
-
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </BrowserRouter>
-      </MovieContextProvider>
-    </AuthContextProvider>
+              {/* </Route> */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </BrowserRouter>
+        </MovieContextProvider>
+      </AuthContextProvider>
+    </LayoutContextProvider>
   );
 };
 
