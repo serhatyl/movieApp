@@ -10,6 +10,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.[hash].js",
+    publicPath: "/",
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

@@ -3,6 +3,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--font-family);
   font-size: var(--font-size);
@@ -44,7 +50,7 @@ footer {
 
   .footer-link-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 48px;
   }
 
@@ -53,7 +59,65 @@ footer {
   }
 }
 
+hr {
+  margin: 32px 0;
+  border: 0;
+  background: var(--seperator-color);
+  height: 2px;
+}
+
 .form-error {
   color: var(--red);
   text-align: left;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.badge {
+  padding: 8px;
+  position: absolute;
+  top: 16px;
+  border-radius: 12px;
+  background: rgba(243, 244, 246, 0.5);
+  backdrop-filter: blur(1px);
+  color: var(--gray-900, #111827);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-bold);
+
+  &.badge--left {
+    left: 16px;
+  }
+
+  &.badge--right {
+    right: 16px;
+  }
+
+  &.badge--rounded {
+    border-radius: 50%;
+  }
+
+  &.badge--clickable {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }

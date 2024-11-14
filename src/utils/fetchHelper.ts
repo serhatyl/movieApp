@@ -9,6 +9,7 @@ const fetchHelper = async (url: string, options: RequestInit = {}) => {
     }
     return await response.json();
   } catch (error) {
+    //NOTE burada global bir error handling yapılabilir Sentry kullanıp loglanabilir
     console.error("Fetch error: ", error);
     throw new Error("Something went wrong with the request.");
   }

@@ -39,7 +39,7 @@ const LoginPage = () => {
     //NOTE - Fake login service belki loading state'i vs eklenebilir
     if (email === "user@mail.com" && password === "Password1") {
       setIsAuthenticated(true);
-      navigate("/home");
+      navigate("/movies");
     } else {
       alert("Lütfen email ve şifrenizi kontrol ederek tekrar deneyiniz");
     }

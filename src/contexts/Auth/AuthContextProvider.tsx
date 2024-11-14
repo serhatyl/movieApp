@@ -7,10 +7,7 @@ interface Props {
 }
 
 const AuthContextProvider: React.FC<Props> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const setIsAuthenticatedFn = (isAuthenticated: boolean) => {
-    setIsAuthenticated(isAuthenticated);
+  const setIsAuthenticated = (isAuthenticated: boolean) => {
     setAuthProps((oldState) => ({
       ...oldState,
       isAuthenticated: isAuthenticated,
@@ -18,8 +15,8 @@ const AuthContextProvider: React.FC<Props> = ({ children }) => {
   };
 
   const [authProps, setAuthProps] = useState<AuthProps>({
-    isAuthenticated,
-    setIsAuthenticated: setIsAuthenticatedFn,
+    isAuthenticated: false,
+    setIsAuthenticated,
   });
 
   return (

@@ -1,3 +1,4 @@
+import { MovieModel } from "../models";
 import fetchHelper from "../utils/fetchHelper";
 
 const fetchMovies = async () => {
@@ -10,4 +11,16 @@ const fetchMovies = async () => {
   }
 };
 
-export { fetchMovies };
+const getMovieDetailById = async (
+  movieId: string
+): Promise<MovieModel | undefined> => {
+  try {
+    const data = await fetchHelper(`/movies/${movieId}`);
+    return data;
+  } catch (error) {
+    console.error("Error ocurred on getMovieDetailById:", error);
+    alert(error);
+  }
+};
+
+export { fetchMovies, getMovieDetailById };
