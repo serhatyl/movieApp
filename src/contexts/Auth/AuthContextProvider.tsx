@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
-import AuthContext from "./AuthContext";
-import { AuthProps } from "./AuthProps";
+import React, {useState} from 'react';
+import AuthContext from './AuthContext';
+import {AuthProps} from './AuthProps';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const AuthContextProvider: React.FC<Props> = ({ children }) => {
+const AuthContextProvider: React.FC<Props> = ({children}) => {
   const setIsAuthenticated = (isAuthenticated: boolean) => {
     setAuthProps((oldState) => ({
       ...oldState,
@@ -19,9 +19,7 @@ const AuthContextProvider: React.FC<Props> = ({ children }) => {
     setIsAuthenticated,
   });
 
-  return (
-    <AuthContext.Provider value={authProps}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={authProps}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContextProvider;

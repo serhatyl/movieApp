@@ -1,17 +1,17 @@
-import React, { createContext, useContext, useState } from "react";
-import MovieContext from "./MovieContext";
-import { MovieProps } from "./MovieProps";
-import { MovieModel } from "../../models";
+import React, {useState} from 'react';
+import MovieContext from './MovieContext';
+import {MovieProps} from './MovieProps';
+import {MovieModel} from '../../models';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const MovieContextProvider: React.FC<Props> = ({ children }) => {
+const MovieContextProvider: React.FC<Props> = ({children}) => {
   const addFavourite = (movie: MovieModel) => {
     setMovieProps((oldState: MovieProps) => {
       const isAlreadyFavourite = oldState.favourites.some(
-        (existingMovie) => existingMovie.id === movie.id
+        (existingMovie) => existingMovie.id === movie.id,
       );
 
       if (isAlreadyFavourite) {
@@ -28,9 +28,7 @@ const MovieContextProvider: React.FC<Props> = ({ children }) => {
   const removeFavourite = (movieId: string) => {
     setMovieProps((oldState: MovieProps) => ({
       ...oldState,
-      favourites: oldState.favourites.filter(
-        (movie: MovieModel) => movie.id !== movieId
-      ),
+      favourites: oldState.favourites.filter((movie: MovieModel) => movie.id !== movieId),
     }));
   };
 
@@ -43,15 +41,13 @@ const MovieContextProvider: React.FC<Props> = ({ children }) => {
 
   const [movieProps, setMovieProps] = useState<MovieProps>({
     favourites: [],
-    searchText: "",
+    searchText: '',
     removeFavourite,
     addFavourite,
     setSearchText,
   });
 
-  return (
-    <MovieContext.Provider value={movieProps}>{children}</MovieContext.Provider>
-  );
+  return <MovieContext.Provider value={movieProps}>{children}</MovieContext.Provider>;
 };
 
 export default MovieContextProvider;

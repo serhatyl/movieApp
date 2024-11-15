@@ -51,13 +51,13 @@ const Footer = () => {
         ))}
       </div>
       <nav className="footer-link-wrapper">
-        <Link hrefLang="Conditions of Use" to={"/"}>
+        <Link hrefLang="Conditions of Use" to="/">
           Conditions of Use
         </Link>
-        <Link hrefLang="Privacy & Policy" to={"/"}>
+        <Link hrefLang="Privacy & Policy" to="/">
           Privacy & Policy
         </Link>
-        <Link hrefLang="Press Room" to={"/"}>
+        <Link hrefLang="Press Room" to="/">
           Press Room
         </Link>
       </nav>

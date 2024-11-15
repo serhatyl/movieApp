@@ -1,9 +1,9 @@
-import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+import React from 'react';
+import {Navigate, Outlet} from 'react-router-dom';
+import {useAuth} from '../hooks/useAuth';
 
 const AuthChecker = () => {
-  const { isAuthenticated } = useAuth();
+  const {isAuthenticated} = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;

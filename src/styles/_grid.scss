@@ -1,6 +1,6 @@
 $gap-size: 4rem;
 
-[class*="col"] {
+[class*='col'] {
   flex: 1 0 auto;
 }
 
@@ -10,6 +10,7 @@ $gap-size: 4rem;
 
 .grid-container {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 90%;
   gap: $gap-size;
@@ -36,5 +37,6 @@ $gap-size: 4rem;
 @media (min-width: 992px) {
   .col-lg-3 {
     flex-basis: calc(100% / 4 - $gap-size);
+    max-width: calc(25% - 4rem);
   }
 }

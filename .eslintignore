@@ -1,0 +1,6 @@
+# exclude JS files
+*.js
+src/**/*.js
+
+# exclude test files
+*.test.tsx

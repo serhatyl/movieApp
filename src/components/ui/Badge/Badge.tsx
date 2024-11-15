@@ -1,11 +1,12 @@
-import React, { ReactNode } from "react";
+import React, {ReactNode} from 'react';
 
 interface BadgeProps {
   children: ReactNode;
-  position: "left" | "right";
+  position: 'left' | 'right';
   rounded?: boolean;
   clickable?: boolean;
   className?: string;
+  // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
@@ -13,22 +14,27 @@ const Badge: React.FC<BadgeProps> = ({
   position,
   rounded,
   clickable,
-  className = "",
+  className = '',
   onClick,
   children,
 }) => {
   const computedClassName = [
-    "badge",
+    'badge',
     className,
     position && `badge--${position}`,
-    rounded ? "badge--rounded" : "",
-    clickable ? "badge--clickable" : "",
+    rounded ? 'badge--rounded' : '',
+    clickable ? 'badge--clickable' : '',
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 
   return (
-    <div className={computedClassName} onClick={onClick}>
+    <div
+      className={computedClassName}
+      onClick={(event) => {
+        onClick && onClick(event);
+      }}
+    >
       {children}
     </div>
   );

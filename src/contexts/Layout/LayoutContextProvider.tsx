@@ -1,36 +1,40 @@
-import React, { createContext, useContext, useState } from "react";
-import AuthContext from "./LayoutContext";
-import { LayoutProps } from "./LayoutProps";
+import React, {useState} from 'react';
+import AuthContext from './LayoutContext';
+import {LayoutProps} from './LayoutProps';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const LayoutContextProvider: React.FC<Props> = ({ children }) => {
+const LayoutContextProvider: React.FC<Props> = ({children}) => {
   const setShowSearch = (showSearch: boolean) => {
-    setLayoutProps((oldState) => ({ ...oldState, showSearch }));
+    setLayoutProps((oldState) => ({...oldState, showSearch}));
   };
 
   const setShowFavourites = (showFavourites: boolean) => {
-    setLayoutProps((oldState) => ({ ...oldState, showFavourites }));
+    setLayoutProps((oldState) => ({...oldState, showFavourites}));
   };
 
   const setTitle = (title: string) => {
-    if (title) setLayoutProps((oldState) => ({ ...oldState, title }));
+    if (title) setLayoutProps((oldState) => ({...oldState, title}));
+  };
+
+  const toggleLoader = (showLoader: boolean) => {
+    setLayoutProps((oldState) => ({...oldState, showLoader}));
   };
 
   const [layoutProps, setLayoutProps] = useState<LayoutProps>({
     showFavourites: false,
     showSearch: false,
-    title: "Movie App",
+    showLoader: false,
+    title: 'Movie App',
     setShowFavourites,
     setShowSearch,
+    toggleLoader,
     setTitle,
   });
 
-  return (
-    <AuthContext.Provider value={layoutProps}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={layoutProps}>{children}</AuthContext.Provider>;
 };
 
 export default LayoutContextProvider;
