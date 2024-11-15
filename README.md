@@ -56,6 +56,16 @@ yarn lint
 yarn pretty
 ```
 
+## Testing
+
+You can test the application. We are used jest for unit test.
+
+```bash
+npm test
+#or
+yarn test
+```
+
 ## Author
 
 - [@serhatyilmaz](https://www.bento.me/serhatyilmaz)
