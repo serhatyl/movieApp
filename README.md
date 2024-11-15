@@ -1,10 +1,10 @@
 # Movie App
 
-Movie App is a web application that allows users to discover movies. This app is built using React, TypeScript, and Webpack, and uses JSON Server to provide mock API data.
+Movie App is a web application that allows users to discover movies. This app is built using React, TypeScript, and Webpack, and it uses JSON Server to provide mock API data.
 
 ## Getting Started
 
-This guide will help you set up and run the Movie App in your local development environment.
+Follow this guide to set up and run the Movie App in your local development environment.
 
 ### Requirements
 
@@ -36,7 +36,7 @@ npm start
 yarn start
 ```
 
-We are using the npm-run-all package for a quick start. If you want to start just the frontend or the json-server, you can use the commands below.
+The application uses the npm-run-all package for quick startup. If you prefer to start only the frontend or the JSON server, you can use the commands below:
 
 ```bash
 npm start:webpack
@@ -58,12 +58,26 @@ yarn pretty
 
 ## Testing
 
-You can test the application. We are used jest for unit test.
+The application uses Jest for unit testing. To run the tests, follow these steps:
 
 ```bash
 npm test
 #or
 yarn test
+```
+
+To watch file changes and rerun tests automatically, use:
+
+```bash
+npm test:watch
+yarn test:watch
+```
+
+To view the test coverage report, use:
+
+```bash
+npm test:coverage
+yarn test:coverage
 ```
 
 ## Author
